@@ -93,7 +93,7 @@ onChange={(e) => props.handleBuyerValueChange(e, e.target.value, 'car_down_payme
 />
 </label>
 <div className="car-price">
-{props.carPrice ? <p>{`Car Price: ${props.carPrice.currency}${props.carPrice.price.toLocaleString()}`}</p> : <p>Loading car price...</p>}
+{props.carPrice ? <p>{`Car Price: ${props.carPrice.currency}${props.carPrice.price.toLocaleString("en-IN")}`}</p> : <p>Loading car price...</p>}
 </div>
 </div>
 );

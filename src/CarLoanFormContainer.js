@@ -70,25 +70,30 @@ const debouncedHandleSubmit = _.debounce(handleSubmit, 1000);
   }, [loanDetails, buyer]);
   
     const handleLoanDetailsValueChange = (event, newValue, inputName) => {
-      setLoanDetails({
-        ...loanDetails,
-        [inputName]: newValue,
-      });
-      setLoanDetailsValue({
-        ...loanDetailsValue,
-        [inputName]: newValue,
-      });
-    };
+      if(newValue !== ''){
+        setLoanDetails({
+          ...loanDetails,
+          [inputName]: newValue,
+        });
+        setLoanDetailsValue({
+          ...loanDetailsValue,
+          [inputName]: newValue,
+        });
+      }
+      };
+
   
     const handleBuyerValueChange = (event, newValue, inputName) => {
-      setBuyer({
-        ...buyer,
-        [inputName]: newValue,
-      });
-      setBuyerValue({
-        ...buyerValue,
-        [inputName]: newValue,
-      });
+      if(newValue !== ''){
+        setBuyer({
+          ...buyer,
+          [inputName]: newValue,
+        });
+        setBuyerValue({
+          ...buyerValue,
+          [inputName]: newValue,
+        });
+      }
     };
   
     
