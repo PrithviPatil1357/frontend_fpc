@@ -5,7 +5,7 @@ import { Slider, TextField } from '@material-ui/core';
 function CarLoanFormPresentational(props) {
 return (
 <div className="car-loan-form">
-<h1 className="form-title">Financially Prudent Car</h1>
+<h1 className="form-title">Financially Prudent Car!</h1>
 <label className="form-label">
 Loan Tenure (in months):
 <Slider
