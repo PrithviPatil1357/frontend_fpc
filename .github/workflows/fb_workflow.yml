@@ -1,0 +1,30 @@
+name: Deploy Firebase
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Setup Node
+      uses: actions/setup-node@v2
+      with:
+        node-version: 14
+      
+    - name: Install Firebase CLI
+      run: npm install -g firebase-tools
+
+    - name: Set GOOGLE_APPLICATION_CREDENTIALS
+      run: echo ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }} | base64 --decode > ${HOME}/firebase.json
+      env:
+        FIREBASE_SERVICE_ACCOUNT_KEY: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }}
+        
+    - name: Deploy Firebase
+      run: firebase deploy --token ${{ secrets.FIREBASE_SERVICE_ACCOUNT_KEY }} --only hosting
