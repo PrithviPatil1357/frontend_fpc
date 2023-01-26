@@ -42,7 +42,7 @@ export function CarLoanFormContainer() {
           car_down_payment_percentage
         }
       }
-      fetch('http://localhost:8081/financially-prudent-car/car-price/country-code/IN', {
+      fetch('http://financiallyprudentcar-env-1.eba-3cpxak2m.ap-northeast-1.elasticbeanstalk.com/financially-prudent-car/car-price/country-code/IN', {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
